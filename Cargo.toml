@@ -1,0 +1,15 @@
+[package]
+name = "tauri-use"
+version = "0.1.0"
+description = "Interop tauri api for leptos"
+authors = ["Jcskey <winzfq@gmail.com>"]
+edition = "2024"
+
+[dependencies]
+reactive_graph = { version = "0.1", features = ["effects"] }
+send_wrapper = "0.6"
+wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4"
+serde = { version = "1", features = ["derive"] }
+serde-wasm-bindgen = "0.6"
+js-sys = "0.3"
