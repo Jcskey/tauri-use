@@ -2,8 +2,12 @@
 name = "tauri-use"
 version = "0.1.0"
 description = "Interop tauri api for leptos"
-authors = ["Jcskey <winzfq@gmail.com>"]
+authors = ["Jcskey"]
 edition = "2024"
+license = "MIT"
+readme = "README.md"
+categories = ["gui", "web-programming", "wasm"]
+keywords = ["leptos", "tauri", "utilities"]
 
 [dependencies]
 reactive_graph = { version = "0.1", features = ["effects"] }
