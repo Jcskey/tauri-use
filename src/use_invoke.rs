@@ -10,6 +10,25 @@ use reactive_graph::{
 };
 use wasm_bindgen::prelude::*;
 
+/// An alias function of `use_invoke` without options or parameters 
+/// 
+/// ```rust
+/// #[component]
+/// pub fn Demo() -> impl IntoView {
+///     let UseTauriWithReturn { 
+///         data: demo, 
+///         trigger: list,
+///         ..
+///     } = use_command::<Vec<Demo>>("list_data");
+///     
+///     view!{
+///         ...
+///         <button on:click=move |_| list.set(Some(()))>list data</button>
+///         ...
+///     }
+/// }
+/// 
+/// ```
 pub fn use_command<T>(
     cmd: &'static str,
 ) -> UseTauriWithReturn<(), T> 
@@ -38,6 +57,25 @@ where
     }
 }
 
+/// An alias function of `use_invoke` without options 
+/// 
+/// ```rust
+/// #[component]
+/// pub fn Demo() -> impl IntoView {
+///     let UseTauriWithReturn { 
+///         data: demo, 
+///         trigger: delete,
+///         ..
+///     } = use_invoke_with_args::<IdWrapper, ()>("delete_data");;
+///     
+///     view!{
+///         ...
+///         <button on:click=move |_| delete.set(Some(IdWrapper::new(id)))>delete data</button>
+///         ...
+///     }
+/// }
+/// 
+/// ```
 pub fn use_invoke_with_args<Args, T>(
     cmd: &'static str,
 ) -> UseTauriWithReturn<Args, T> 
@@ -67,6 +105,25 @@ where
     }
 }
 
+/// An alias function of `use_invoke` without parameters 
+/// 
+/// ```rust
+/// #[component]
+/// pub fn Demo() -> impl IntoView {
+///     let UseTauriWithReturn { 
+///         data: demo, 
+///         trigger: config,
+///         ..
+///     } = use_invoke_with_options::<Options, ()>("config_data");;
+///     
+///     view!{
+///         ...
+///         <button on:click=move |_| config.set(Some(Options::new(...)))>config data</button>
+///         ...
+///     }
+/// }
+/// 
+/// ```
 pub fn use_invoke_with_options<Opts, T>(
     cmd: &'static str,
 ) -> UseTauriWithReturn<Opts, T> 
@@ -96,6 +153,7 @@ where
     }
 }
 
+/// A `leptos` wrapper for Tauri's native `invoke` function.
 pub fn use_invoke<Args, Opts, T>(
     cmd: &'static str
 ) -> UseTauriReturn<Args, Opts, T> 
@@ -168,8 +226,6 @@ where
         trigger: set_trigger
     }
 }
-
-
 
 pub struct UseTauriReturn<Args, Opts, T>
 where 
