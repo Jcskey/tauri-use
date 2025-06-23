@@ -1,6 +1,6 @@
 [package]
 name = "tauri-use"
-version = "0.2.1"
+version = "0.2.2"
 description = "Interop tauri api for leptos"
 authors = ["Jcskey"]
 edition = "2024"
